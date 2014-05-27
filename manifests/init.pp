@@ -22,8 +22,14 @@
 # Sergey Stankevich
 #
 class exim (
+  $update_aliases = false,
   $mail_relay = false,
-  $root_email = "root@${::domain}"
+  $root_email = "root@${::domain}",
+  $dc_eximconfig_configtype = 'internet',
+  $dc_local_interfaces ='127.0.0.1  ; ::1',
+  $dc_relay_nets = '',
+  $dc_smarthost = '',
+  $dc_hide_mailname = 'true'
 ) {
 
   # Module compatibility check
@@ -33,9 +39,9 @@ class exim (
   }
 
   # Parameter validation
-  if ! $mail_relay {
-    fail('exim: mail_relay parameter must not be empty')
-  }
+  #if ! $mail_relay {
+  #  fail('exim: mail_relay parameter must not be empty')
+  #}
 
   Class['exim::install'] -> Class['exim::config']
 
