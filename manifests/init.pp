@@ -29,7 +29,8 @@ class exim (
   $dc_local_interfaces ='127.0.0.1  ; ::1',
   $dc_relay_nets = '',
   $dc_smarthost = '',
-  $dc_hide_mailname = 'true'
+  $dc_hide_mailname = 'true',
+  $dc_readhost = "${::fqdn}"
 ) {
 
   # Module compatibility check
