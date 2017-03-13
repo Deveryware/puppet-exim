@@ -1,8 +1,8 @@
 class exim::config {
 
-  if $update_aliases {
+  if $::exim::update_aliases {
     exec { 'exim_aliases':
-      command     => 'invoke-rc.d exim4 reload',
+      command     => '/usr/sbin/invoke-rc.d exim4 reload',
       refreshonly => true,
     }
 
